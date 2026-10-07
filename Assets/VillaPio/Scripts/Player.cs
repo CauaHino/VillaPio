@@ -29,8 +29,12 @@ public class Player : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform throwPoint;
     
+    // UIManager
+    private UiManager uiManager;
+    
     void Start()
     {
+        uiManager = FindAnyObjectByType<UiManager>();
         rb2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -114,12 +118,8 @@ public class Player : MonoBehaviour
         rb2D.linearVelocity = Vector2.zero;
         isDead = true;
         anim.SetTrigger("isDead");
-        Invoke(nameof(RecargarEscena), 0.5f);
+        uiManager.showMenu();
     }
 
-    // The animation will call this method on its last frame
-    public void RecargarEscena()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+    
 }
