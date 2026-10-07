@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Floor
   - Coin
+  - BotonReiniciar
   layers:
   - Default
   - TransparentFX
