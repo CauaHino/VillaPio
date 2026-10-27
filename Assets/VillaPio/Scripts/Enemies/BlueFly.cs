@@ -1,12 +1,13 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class BlueFly : Enemy
 {
-    public void OnAnimatorHitFinished()
+    protected override void Start()
     {
-        animator.SetTrigger("Death");
-        Destroy(gameObject, 0.25f); 
+        vida = 2;
+        base.Start();
     }
 }

@@ -10,8 +10,9 @@ public class Enemy : MonoBehaviour
     public Transform puntoB;
     public float speed = 0.5f;
     private Transform objetivo;
+    protected int vida;
 
-    void Start()
+    protected virtual void Start()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -42,17 +43,22 @@ public class Enemy : MonoBehaviour
         Player  player = collision.GetComponent<Player>();
         if (collision.transform.CompareTag("Player"))
         {
-            player.Die();
+            player.Hit();
         }
     }
 
     public void Hit()
     {
         animator.SetTrigger("Hit");
-        speed = 0;
+        vida--;
+        if (vida == 0)
+        {
+            speed = 0;
+            Die();
+        }
     }
 
-    public void OnAnimatorHitFinished()
+    private void Die()
     {
         animator.SetTrigger("Death");
         Destroy(gameObject, 0.5f); 
