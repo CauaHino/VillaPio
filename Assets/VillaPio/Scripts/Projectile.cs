@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
 
     public void LaunchProjectile(float direction)
     {
-        rb2D.linearVelocity = new Vector2(speed * direction, rb2D.linearVelocity.y);   
+        rb2D.linearVelocity = new Vector2(speed * direction, rb2D.linearVelocity.y);
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
