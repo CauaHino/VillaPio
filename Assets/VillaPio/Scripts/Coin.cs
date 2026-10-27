@@ -3,6 +3,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     private UiManager uiManager;
+    public AudioClip coinAudio;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -10,6 +11,7 @@ public class Coin : MonoBehaviour
         {
             uiManager = FindAnyObjectByType<UiManager>();
             uiManager.CoinCollected();
+            AudioSource.PlayClipAtPoint(coinAudio, transform.position);
             Destroy(gameObject);
         }
     }
