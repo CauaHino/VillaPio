@@ -9,6 +9,7 @@ TagManager:
   - Floor
   - Coin
   - BotonReiniciar
+  - BotonMenu
   layers:
   - Default
   - TransparentFX
