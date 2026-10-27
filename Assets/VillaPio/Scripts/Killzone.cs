@@ -7,7 +7,8 @@ public class Killzone : MonoBehaviour
    {
       if (collision.transform.CompareTag("Player"))
       {
-         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+         Player player = collision.GetComponent<Player>();
+         player.Die();
       }
    }
 }
